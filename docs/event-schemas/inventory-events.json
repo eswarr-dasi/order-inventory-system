@@ -1,0 +1,26 @@
+{
+  "description": "Event schemas published by inventory-service to the inventory.events Kafka topic.",
+  "events": {
+    "StockReserved": {
+      "orderId": "string (UUID)",
+      "reservationId": "string (UUID)",
+      "items": [ { "sku": "string", "quantity": "integer" } ],
+      "reservedAt": "ISO-8601 timestamp"
+    },
+    "StockReservationFailed": {
+      "orderId": "string (UUID)",
+      "reason": "string",
+      "failedAt": "ISO-8601 timestamp"
+    },
+    "StockReleased": {
+      "orderId": "string (UUID)",
+      "reservationId": "string (UUID)",
+      "releasedAt": "ISO-8601 timestamp"
+    },
+    "StockRestocked": {
+      "sku": "string",
+      "quantityAdded": "integer",
+      "restockedAt": "ISO-8601 timestamp"
+    }
+  }
+}
