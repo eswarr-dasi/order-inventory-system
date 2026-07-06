@@ -1,0 +1,21 @@
+{
+  "description": "Event schemas published by order-service to the order.events Kafka topic.",
+  "events": {
+    "OrderCreated": {
+      "orderId": "string (UUID)",
+      "customerId": "string (UUID)",
+      "items": [ { "sku": "string", "quantity": "integer", "unitPrice": "decimal" } ],
+      "totalAmount": "decimal",
+      "createdAt": "ISO-8601 timestamp"
+    },
+    "OrderConfirmed": {
+      "orderId": "string (UUID)",
+      "confirmedAt": "ISO-8601 timestamp"
+    },
+    "OrderCancelled": {
+      "orderId": "string (UUID)",
+      "reason": "string",
+      "cancelledAt": "ISO-8601 timestamp"
+    }
+  }
+}
